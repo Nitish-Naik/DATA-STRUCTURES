@@ -1,0 +1,43 @@
+from collections import deque
+
+class Stack:
+    def __init__(self):
+        self._stack = deque()
+
+    def push(self, item):
+        self._stack.append(item)
+
+    def pop(self):
+        if not self.is_empty():
+            return self._stack.pop()
+        else:
+            raise IndexError("pop from an empty stack")
+
+    def peek(self):
+        if not self.is_empty():
+            return self._stack[-1]
+        else:
+            raise IndexError("peek from an empty stack")
+
+    def is_empty(self):
+        return len(self._stack) == 0
+
+    def size(self):
+        return len(self._stack)
+
+# Example usage:
+stack = Stack()
+
+stack.push(1)
+stack.push(2)
+stack.push(3)
+
+print("Stack:", stack._stack)
+
+print("Peek:", stack.peek())
+
+print("Pop:", stack.pop())
+
+print("Is empty:", stack.is_empty())
+
+print("Size:", stack.size())
